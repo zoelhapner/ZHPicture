@@ -43,6 +43,7 @@ return new class extends Migration
             $table->foreign('bank_id')->references('id')->on('banks')->onDelete('cascade');
             $table->string('account_number')->nullable();
             $table->string('account_holder')->nullable();
+            $table->boolean('is_speaker')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
