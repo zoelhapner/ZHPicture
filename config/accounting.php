@@ -33,16 +33,20 @@ return [
         ],
 
         'PENDAPATAN' => [
-            'Pendapatan Survei',
-            'Pendapatan Proyek Desain',
-            'Pendapatan Proyek RAB',
-            'Pendapatan Proyek Build',
-            'Pendapatan Toko Bangunan',
+            'Pendapatan Proyek',
+            'Pendapatan Proyek Wedding',
+            'Pendapatan Proyek Event',
+            'Pendapatan Proyek Branding',
+            'Pendapatan Proyek Collaboration',
             'Pendapatan Lainnya',
         ],
 
         'BEBAN' => [
-            'Biaya Lisensi',
+            'Biaya Proyek',
+            'Biaya Proyek Wedding',
+            'Biaya Proyek Event',
+            'Biaya Proyek Branding',
+            'Biaya Proyek Collaboration',
             'Biaya Pembelian',
             'Biaya Pembelian Material',
             'Biaya Pembelian Merchandise',

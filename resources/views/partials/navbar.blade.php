@@ -131,7 +131,7 @@
 .website-menu>a:hover,
 .menu-link:hover{
 
-    color:#b7965b;
+    color:#bbbdbf;
 
 }
 .website-icons{
@@ -270,7 +270,7 @@
 
 .mega-menu a:hover{
 
-    background:#c3bbb0;
+    background:#bbbdbf;
 
 }
 /* Tablet */
@@ -298,7 +298,196 @@
         font-size:22px;
     }
 }
-@media (max-width:768px){
+@media (max-width: 768px) {
+
+    .website-header {
+        top: 12px;
+    }
+
+    .website-navbar {
+        width: calc(100% - 28px);
+        height: 68px;
+        padding: 0 16px;
+
+        display: grid;
+        grid-template-columns: 44px 1fr 44px;
+        align-items: center;
+
+        border-radius: 30px;
+    }
+
+    /* HAMBURGER */
+    .mobile-menu-btn {
+        grid-column: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 44px;
+        height: 44px;
+
+        padding: 0;
+        border: none;
+        background: transparent;
+
+        font-size: 30px;
+        line-height: 1;
+
+        cursor: pointer;
+        z-index: 10003;
+    }
+
+    /* LOGO */
+    .website-logo {
+        grid-column: 2;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: static;
+    }
+
+    .website-logo img {
+        position: static;
+        transform: none;
+
+        height: 64px;
+        width: auto;
+        display: block;
+    }
+
+    /* USER ICON */
+    .website-icons {
+        grid-column: 3;
+
+        position: static;
+        transform: none;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .website-icons > a {
+        display: none;
+    }
+
+    .website-icons .user-btn {
+        font-size: 30px;
+    }
+
+    /* MOBILE MENU */
+    .website-menu {
+        position: fixed;
+
+        top: 0;
+        left: -340px;
+        transform: none;
+        width: 340px;
+        max-width: 85vw;
+        height: 100vh;
+
+        padding: 90px 24px 30px;
+
+        background: #fff;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        overflow-y: auto;
+
+        box-shadow: 8px 0 30px rgba(0, 0, 0, .15);
+
+        transition: left .35s ease;
+
+        z-index: 10002;
+    }
+
+    .website-menu.active {
+        left: 0;
+    }
+
+    .website-menu > a,
+    .website-menu .menu-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+
+        padding: 16px 0;
+
+        font-size: 14px;
+        font-weight: 600;
+        text-align: left;
+
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    /* OVERLAY */
+    .mobile-overlay {
+        position: fixed;
+        inset: 0;
+
+        background: rgba(0, 0, 0, .45);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: opacity .3s ease;
+
+        z-index: 10001;
+    }
+
+    .mobile-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* MEGA MENU */
+    .mega-menu {
+        display: none;
+
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+
+        width: calc(100% - 16px);
+
+        margin: 10px 0 12px 16px;
+
+        padding: 8px 0;
+
+        background: #f8f8f8;
+
+        border-radius: 0 10px 10px 0;
+
+        box-shadow: none;
+        overflow: hidden;
+    }
+
+    .menu-dropdown.open .mega-menu {
+        display: block;
+    }
+
+    .mega-menu a {
+        display: block;
+
+        padding: 12px 18px;
+
+        margin: 0;
+
+        font-size: 13px;
+        color: #555;
+
+        border: none;
+    }
+}
+/* @media (max-width:768px){
 
     .website-navbar{
 
@@ -398,104 +587,127 @@
     }
     .mobile-overlay{
 
-    position:fixed;
+        position:fixed;
 
-    inset:0;
+        inset:0;
 
-    background:rgba(0,0,0,.45);
+        background:rgba(0,0,0,.45);
 
-    opacity:0;
-    visibility:hidden;
+        opacity:0;
+        visibility:hidden;
 
-    transition:.3s;
+        transition:.3s;
 
-    z-index:10000;
-}
+        z-index:10000;
+    }
 
-.mobile-overlay.show{
+    .mobile-overlay.show{
 
-    opacity:1;
-    visibility:visible;
-}
-.mega-menu{
-    display:none;
-    position:static;
-    left:auto;
-    top:auto;
-    transform:none;
-    margin:10px 0 12px 16px;
-    width:calc(100% - 16px);
-    padding:8px 0;
-    background:#f8f8f8;
+        opacity:1;
+        visibility:visible;
+    }
+    .mega-menu{
+        display:none;
+        position:static;
+        left:auto;
+        top:auto;
+        transform:none;
+        margin:10px 0 12px 16px;
+        width:calc(100% - 16px);
+        padding:8px 0;
+        background:#f8f8f8;
 
-    border-radius:0 10px 10px 0;
+        border-radius:0 10px 10px 0;
 
-    padding:8px 0;
-    overflow:hidden;
+        padding:8px 0;
+        overflow:hidden;
 
-    box-shadow:none;
-}
+        box-shadow:none;
+    }
 
-.menu-dropdown.open .mega-menu{
-    display:block;
-}
+    .menu-dropdown.open .mega-menu{
+        display:block;
+    }
 
-.mega-menu a{
-    display:block;
+    .mega-menu a{
+        display:block;
 
-    padding:12px 18px;
+        padding:12px 18px;
 
-    margin:0;
+        margin:0;
 
-    font-size:13px;
-    color:#555;
+        font-size:13px;
+        color:#555;
 
-    border:none;
-}
-}
+        border:none;
+    }
+} */
 </style>
 <script>
-const menu = document.getElementById("websiteMenu");
-const btn = document.getElementById("mobileMenuBtn");
-const overlay = document.getElementById("mobileOverlay");
-btn.onclick = () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    menu.classList.add("active");
-    overlay.classList.add("show");
+    const menu = document.getElementById("websiteMenu");
+    const btn = document.getElementById("mobileMenuBtn");
+    const overlay = document.getElementById("mobileOverlay");
 
-};
-
-overlay.onclick = () => {
-
-    menu.classList.remove("active");
-    overlay.classList.remove("show");
-
-};
-document.querySelectorAll(".menu-link").forEach(button => {
-    button.addEventListener("click", function(e){
-        e.preventDefault();
-        console.log("klik");
-        this.closest(".menu-dropdown").classList.toggle("open");
-    });
-});
-const userBtn = document.getElementById('userBtn');
-const userDropdown = document.getElementById('userDropdown');
-
-userBtn.addEventListener('click', function(e){
-    e.stopPropagation();
-
-    userDropdown.classList.toggle('open');
-});
-
-document.addEventListener('click', function(){
-    userDropdown.classList.remove('open');
-});
-window.addEventListener('resize', function () {
-    if (window.innerWidth > 768) {
-        menu.classList.remove('active');
-        overlay.classList.remove('show');
-        document.querySelectorAll('.menu-dropdown')
-            .forEach(item => item.classList.remove('open'));
+    if (!menu || !btn || !overlay) {
+        console.error("Navbar mobile element tidak ditemukan.");
+        return;
     }
+
+    btn.addEventListener("click", function () {
+        menu.classList.toggle("active");
+        overlay.classList.toggle("show");
+    });
+
+    overlay.addEventListener("click", function () {
+        menu.classList.remove("active");
+        overlay.classList.remove("show");
+    });
+
+    document.querySelectorAll(".menu-link").forEach(button => {
+
+        button.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            this.closest(".menu-dropdown")
+                .classList.toggle("open");
+        });
+
+    });
+
+    const userBtn = document.getElementById("userBtn");
+    const userDropdown = document.getElementById("userDropdown");
+
+    if (userBtn && userDropdown) {
+
+        userBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+
+            userDropdown.classList.toggle("open");
+        });
+
+        document.addEventListener("click", function () {
+            userDropdown.classList.remove("open");
+        });
+
+    }
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 768) {
+
+            menu.classList.remove("active");
+            overlay.classList.remove("show");
+
+            document.querySelectorAll(".menu-dropdown")
+                .forEach(item => {
+                    item.classList.remove("open");
+                });
+
+        }
+
+    });
+
 });
 </script>

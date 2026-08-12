@@ -3,7 +3,7 @@
 <style>
 .hero {
     position: relative;
-    width: 100%;
+    width: auto;
     height: 100vh;
     overflow: hidden;
 }
@@ -107,7 +107,7 @@
                 rgba(0,0,0,0.65),
                 rgba(0,0,0,0.35)
             ),
-            url('{{ asset('images/hero-dekstop.jpeg') }}');
+            url('{{ asset('images/hero-dekstop2.jpg') }}');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 85% top;

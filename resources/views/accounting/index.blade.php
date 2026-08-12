@@ -88,15 +88,17 @@
 @push('js')
 <script>
     $(function() {
+        const isMobile = window.innerWidth < 576;
         const table = $('#tableAccounts').DataTable({
             scrollY: '500px',
             scrollX: true,
             scrollCollapse: true,
-                fixedColumns: {
+                fixedColumns: !isMobile ? {
                     leftColumns: 3
-                },
+                } : false,
             serverSide: true,
             processing: true,
+            responsive: false,
             ajax: '{{ route("accounting.index") }}',
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
