@@ -121,8 +121,7 @@ class RolePermissionSeeder extends Seeder
                 'Vendor',
                 ],
             'Eksternal' => [
-                'Mitra',
-                'customer',
+                'Customer',
                 'Affiliator',
             ],
         ];

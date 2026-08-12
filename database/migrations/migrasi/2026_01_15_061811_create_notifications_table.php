@@ -15,9 +15,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('type');
 
-            // GANTI INI:
-            // $table->morphs('notifiable');
-
             // JADI INI:
             $table->uuid('notifiable_id');
             $table->string('notifiable_type');
