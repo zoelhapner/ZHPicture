@@ -5,7 +5,7 @@
     <div class="container-xl">
         <div class="row align-items-center">
             <div class="col d-flex align-items-center">
-                <a href="{{ route('journals.index') }}" class="btn btn-primary d-flex align-items-center">
+                <a href="{{ route('journals.index') }}" class="btn btn-dark d-flex align-items-center">
                     <i class="ti ti-arrow-left"></i>
                 </a>      
                     <h2 class="page-title mb-0">Edit Jurnal</h2> 
@@ -157,7 +157,7 @@
                                                             <input type="hidden" name="details[{{ $i }}][credit]" value="{{ $detail->credit }}">
                                                         @endif
                                                     </td>
-                                                    <td><button type="button" class="btn btn-sm btn-primary remove-row" title="Hapus">
+                                                    <td><button type="button" class="btn btn-sm btn-dark remove-row" title="Hapus">
                                                                 <i class="ti ti-trash"></i>
                                                         </button>
                                                     </td>
@@ -168,7 +168,7 @@
 
                                     <tfoot>
                                         <tr>
-                                            <td colspan="6"><button type="button" id="add-row" class="btn btn-sm btn-primary text-black">Tambah Baris</button></td>
+                                            <td colspan="6"><button type="button" id="add-row" class="btn btn-sm btn-dark text-white">Tambah Baris</button></td>
                                         </tr>
                                         <tr>
                                             <th colspan="3">Subtotal</th>
@@ -262,7 +262,7 @@
 
                             @endif
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary text-black">Simpan Perubahan</button>
+                                <button type="submit" class="btn btn-dark text-white">Simpan Perubahan</button>
                             </div>
                             
                             {{-- @if(!auth()->user()->hasRole('Super-Admin'))
@@ -463,7 +463,7 @@ $(document).ready(function () {
                 <td><input type="text" name="details[${rowCount}][debit]" class="form-control debit-input"></td>
                 <td><input type="text" name="details[${rowCount}][credit]" class="form-control credit-input"></td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-primary remove-row">
+                    <button type="button" class="btn btn-sm btn-dark remove-row">
                         <i class="ti ti-trash"></i>
                     </button>
                 </td>

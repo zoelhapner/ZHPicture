@@ -83,8 +83,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route lain yang wajib email terverifikasi
 });
+// Route::get('/dashboard', [DashboardController::class, 'index'])
+//         ->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])
-        ->name('dashboard');
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 Route::get('/home', function () {
     return redirect()->route('dashboard');
 })->name('home');

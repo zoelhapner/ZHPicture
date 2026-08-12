@@ -47,8 +47,8 @@
 }
 
 .btn-save{
-    background:#DCCBA8;
-    color:#111;
+    background:#000;
+    color:#fff;
     border:none;
     border-radius:12px;
     height:46px;
@@ -65,15 +65,11 @@
         <!-- Form Update Profil -->
         <div class="col-xl-7 col-lg-8">
             <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-dark text-white">
                     <h3>
                         <i class="ti ti-user-circle me-2"></i>
                         Informasi Profil
                     </h3>
-
-                    <small class="text-muted">
-                        Kelola informasi akun dan keamanan Anda
-                    </small>
                 </div>
                 <div class="card-body">
                     {{-- <form id="send-verification" method="post" action="{{ route('verification.send') }}">
