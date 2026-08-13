@@ -52,8 +52,8 @@
                 <div class="card-body">
                     <div class="row align-items-center mb-4">
                         <div class="col-md-3 text-center">
-                            @if ($user->photo)
-                            <img id="previewImage" src="{{ asset('storage/'.$user->photo) }}" alt="Profile" 
+                            @if ($employee->user->photo)
+                            <img id="previewImage" src="{{ asset('storage/'.$employee->user->photo) }}" alt="Profile" 
                                  class="rounded-3 shadow-sm border" width="150" height="150"
                                  style="object-fit: cover;">
                         @else
@@ -68,27 +68,27 @@
                             <div class="row g-3">
                                 <div class="col-md-4">
                                     <div class="text-muted small">Nama Lengkap</div>
-                                    <div class="fw-bold">{{ $user->fullname ?? '-' }}</div>
+                                    <div class="fw-bold">{{ $employee->user->fullname ?? '-' }}</div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-muted small">Email</div>
-                                    <div class="fw-bold">{{ $user->email ?? '-' }}</div>
+                                    <div class="fw-bold">{{ $employee->user->email ?? '-' }}</div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-muted small">Telepon</div>
-                                    <div class="fw-bold">{{ $user->phone ?? '-' }}</div>
+                                    <div class="fw-bold">{{ $employee->user->phone ?? '-' }}</div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-muted small mt-2">Tanggal Lahir</div>
-                                    <div class="fw-bold">{{ $user->birth_date_formatted ?? '-' }}</div>
+                                    <div class="fw-bold">{{ $employee->user->birth_date_formatted ?? '-' }}</div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-muted small mt-2">Jenis Kelamin</div>
-                                    <div class="fw-bold">{{ $user->readable_gender ?? '-' }}</div>
+                                    <div class="fw-bold">{{ $employee->user->readable_gender ?? '-' }}</div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-muted small mt-2">Posisi / Jabatan</div>
-                                    <div class="fw-bold">{{ $user->roles->pluck('name')->implode(', ') ?: '-' }}</div>
+                                    <div class="fw-bold">{{ $employee->user->roles->pluck('name')->implode(', ') ?: '-' }}</div>
                                 </div>
                             </div>
                         </div>
@@ -105,27 +105,27 @@
                     <div class="row g-3">
                         <div class="col-12">
                             <div class="text-muted small">Alamat Lengkap</div>
-                            <div class="fw-bold">{{ $user->address ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->address ?? '-' }}</div>
                         </div>
                         <div class="col-md-3">
                             <div class="text-muted small">Kelurahan</div>
-                            <div class="fw-bold">{{ $user->subDistrict->name ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->subDistrict->name ?? '-' }}</div>
                         </div>
                         <div class="col-md-3">
                             <div class="text-muted small">Kecamatan</div>
-                            <div class="fw-bold">{{ $user->district->name ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->district->name ?? '-' }}</div>
                         </div>
                         <div class="col-md-6">
                             <div class="text-muted small">Kabupaten/Kota</div>
-                            <div class="fw-bold">{{ $user->city->name ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->city->name ?? '-' }}</div>
                         </div>
                         <div class="col-md-3">
                             <div class="text-muted small">Provinsi</div>
-                            <div class="fw-bold">{{ $user->province->name ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->province->name ?? '-' }}</div>
                         </div>
                         <div class="col-md-3">
                             <div class="text-muted small">Kode Pos</div>
-                            <div class="fw-bold">{{ $user->postalCode->postal_code ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->postalCode->postal_code ?? '-' }}</div>
                         </div>
 
                     </div>
@@ -141,15 +141,15 @@
                     <div class="row g-3">
                         <div class="col-md-4">
                             <div class="text-muted small">Nama Bank</div>
-                            <div class="fw-bold">{{ $user->bank->name ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->bank->name ?? '-' }}</div>
                         </div>
                         <div class="col-md-4">
                             <div class="text-muted small">Nomor Rekening</div>
-                            <div class="fw-bold">{{ $user->account_number ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->account_number ?? '-' }}</div>
                         </div>
                         <div class="col-md-4">
                             <div class="text-muted small">Atas Nama</div>
-                            <div class="fw-bold">{{ $user->account_holder ?? '-' }}</div>
+                            <div class="fw-bold">{{ $employee->user->account_holder ?? '-' }}</div>
                         </div>
                     </div>
                 </div>
@@ -202,21 +202,21 @@
                         <div class="col-md-4 mt-3">
                             <div class="text-muted small">Foto KTP</div>
 
-                            @if($user->identity_photo)
+                            @if($employee->user->identity_photo)
 
                                 @php
-                                    $ext = strtolower(pathinfo($user->identity_photo, PATHINFO_EXTENSION));
+                                    $ext = strtolower(pathinfo($employee->user->identity_photo, PATHINFO_EXTENSION));
                                 @endphp
 
                                 @if(in_array($ext, ['jpg', 'jpeg', 'png']))
-                                    <a href="{{ asset('storage/'.$user->identity_photo) }}"
+                                    <a href="{{ asset('storage/'.$employee->user->identity_photo) }}"
                                     target="_blank">
-                                        <img src="{{ asset('storage/'.$user->identity_photo) }}"
+                                        <img src="{{ asset('storage/'.$employee->user->identity_photo) }}"
                                             class="img-fluid rounded border mt-1"
                                             style="max-height:180px; object-fit:cover;">
                                     </a>
                                 @else
-                                    <a href="{{ asset('storage/'.$user->identity_photo) }}"
+                                    <a href="{{ asset('storage/'.$employee->user->identity_photo) }}"
                                     target="_blank"
                                     class="btn btn-outline-danger mt-1">
                                         <i class="ti ti-file-type-pdf"></i>
