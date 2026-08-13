@@ -121,7 +121,7 @@ class EmployeeController extends Controller
         // --- data user (optional user_id)
         'user_id' => 'nullable|exists:users,id',
         'fullname' => 'required|string|max:255',
-        'nickname' => 'nullable|string|max:100',
+        'nickname' => 'nullable|string|max:50',
         'gender' => 'nullable|in:1,2',
         'email' => 'required|email|unique:users,email',
         'birth_place' => 'nullable|string|max:100',
@@ -343,6 +343,7 @@ public function show(Employee $employee)
     $validated = $request->validate([
         // --- data user ---
         'fullname' => 'required|string|max:255',
+        'nickname' => 'nullable|string|max:50',
         'birth_place' => 'nullable|string|max:255',
         'birth_date' => 'nullable|date',
         'gender' => 'nullable|in:1,2',
@@ -391,6 +392,7 @@ public function show(Employee $employee)
     // 🔹 Update data user
     $user->update([
         'fullname' => $validated['fullname'],
+        'nickname' => $validated['nickname'],
         'birth_place' => $validated['birth_place'] ?? null,
         'birth_date' => $validated['birth_date'] ?? null,
         'email' => $validated['email'],

@@ -38,14 +38,14 @@ class DashboardController extends Controller
     $incompleteAffiliator = collect($requiredAffiliatorFields)->contains(fn($field) => empty($user->$field));
 
         $profileComplete = !$incompleteProfile && !$incompleteAffiliator;
-        $attendanceToday = null;
+        // $attendanceToday = null;
 
-        if (auth()->user()->isInternal() && auth()->user()->employee) {
-            $attendanceToday = Attendance::where('employee_id', auth()->user()->employee->id)
-                ->whereDate('attendance_date', today())
-                ->first();
-        }
-        return view('dashboard.index', compact('user', 'incompleteProfile', 'incompleteAffiliator', 'attendanceToday'));
+        // if (auth()->user()->isInternal() && auth()->user()->employee) {
+        //     $attendanceToday = Attendance::where('employee_id', auth()->user()->employee->id)
+        //         ->whereDate('attendance_date', today())
+        //         ->first();
+        // }
+        return view('dashboard.index', compact('user', 'incompleteProfile', 'incompleteAffiliator'));
 
     }
 

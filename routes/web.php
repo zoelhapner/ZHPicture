@@ -103,7 +103,7 @@ Route::put('/affiliators/profile', [DashboardController::class, 'update'])->name
 
 
 
-Route::middleware(['auth', 'permission:lihat daftar tim|lihat data tim'])->group(function () {
+Route::middleware(['auth', 'permission:lihat daftar karyawan|lihat data karyawan'])->group(function () {
     Route::resource('/employees', EmployeeController::class)->whereUuid('employee');
 });
 
