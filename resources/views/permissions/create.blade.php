@@ -52,7 +52,6 @@
                         @enderror
                     </div>
                         <button type="submit" class="btn btn-success">Simpan</button>
-                        <a href="{{ route('permissions.index') }}" class="btn btn-secondary">Batal</a>
                     </form>
                 </div>
             </div>

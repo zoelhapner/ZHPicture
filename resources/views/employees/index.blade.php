@@ -7,7 +7,7 @@
             <div class="row g-2 align-items-center">
                 <div class="col-12 col-md-auto ms-auto d-print-none">
                     <div class="btn-list">
-                 @can('tambah data tim')       
+                 @can('tambah data karyawan')       
                   
                         <a href="{{ route("employees.create") }}" class="btn btn-dark" >
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -34,7 +34,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <p class="text-center mb-4" style="font-size: 1.5rem; font-weight: 400; font-family: 'Poppins', sans-serif;">
+                            <p class="text-center mb-4">
                                  Daftar Karyawan
                             </p>
                         </div>

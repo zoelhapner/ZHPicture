@@ -592,6 +592,13 @@ z-index: 1035;
     font-weight: 100 !important;
     color:#000 !important;
 }
+    .card-header p{
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 18px !important;
+        margin-bottom: 0 !important;
+        white-space:nowrap;
+        margin-bottom:0 !important;
+    }
 .btn-primary:hover{
     background:#c3bbb0 !important;
 }
@@ -888,19 +895,6 @@ border-radius:50%;
 font-size:12px;
 cursor:pointer;
 }
-.rab-gallery-img{
-width:140px;
-height:100px;
-object-fit:cover;
-border-radius:6px;
-cursor:pointer;
-border:1px solid #ddd;
-transition:.2s;
-}
-
-.rab-gallery-img:hover{
-transform:scale(1.05);
-}
 .image-viewer{
 position:fixed;
 inset:0;
@@ -986,22 +980,7 @@ input[type=number]::-webkit-outer-spin-button {
 .drag-ahsp {
     opacity: 0.3;
 }
-.sticky-rab-header{
-    position: sticky;
-    top: 90px;
-    z-index: 12;
-    background-color: #fff;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-    width: 100%;
-}
-.sticky-rab-header::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: #fff;
-    z-index: -1;
-}
+
 .chart-wrapper{
     position: relative;
     height: 450px;
