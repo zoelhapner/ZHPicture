@@ -197,10 +197,9 @@ Route::middleware(['auth', 'permission:lihat daftar kontraktor|lihat data kontra
 
 Route::get('/accounting/generate-code', [AccountingAccountController::class, 'generateCode']);
 
-Route::middleware(['auth', 'role:Super-Admin|Akuntan'])
+Route::middleware(['auth', 'permission:lihat akun-akuntansi'])
         ->resource('accounting', AccountingAccountController::class)
          ->parameters(['accounting' => 'account']);
-
 
 Route::get('/journals/{journal}/print', [AccountingJournalController::class, 'print'])
     ->name('journals.print');
@@ -208,16 +207,16 @@ Route::get('/journals/{journal}/print', [AccountingJournalController::class, 'pr
 
 Route::get('/journals/report', [AccountingJournalController::class, 'report'])
     ->name('journals.report')
-    ->middleware(['role:Super-Admin|Akuntan|Pemilik Lisensi']);
+    ->middleware(['auth', 'permission:lihat transaksi']);
 
 Route::get('/journals/general', [AccountingJournalController::class, 'generalJournal'])
     ->name('journals.general')
-    ->middleware(['role:Super-Admin|Akuntan|Pemilik Lisensi']);
+    ->middleware(['auth', 'permission:lihat jurnal umum']);
 Route::get('/journals/export/pdf', [AccountingJournalController::class, 'exportPDF'])->name('journals.export.pdf');
 
 Route::get('/journals/ledger', [AccountingJournalController::class, 'ledger'])
     ->name('journals.ledger')
-    ->middleware(['role:Super-Admin|Akuntan|Pemilik Lisensi']);
+    ->middleware(['auth', 'permission:lihat buku besar']);
 Route::get('/journals/ledgerpdf', [AccountingJournalController::class, 'exportLedgerPdf'])->name('ledgerpdf');
 
 Route::get('/journals/export/trial-pdf', [AccountingJournalController::class, 'exportTrial'])
@@ -227,16 +226,17 @@ Route::get('/journals/income/pdf', [AccountingJournalController::class, 'exportI
     ->name('journals.income.pdf');
 Route::get('/check-period', [AccountingJournalController::class, 'checkPeriod']);
 
-Route::middleware(['role:Super-Admin|Akuntan'])->group(function () {
+Route::middleware(['auth', 'permission:lihat jurnal'])->group(function () {
     Route::resource('/journals', AccountingJournalController::class);
 });
 
 Route::get('/reports/balance_sheet', [AccountingJournalController::class, 'balanceSheet'])
     ->name('reports.balance_sheet')
-    ->middleware(['role:Super-Admin|Akuntan|Pemilik Lisensi']);
+    ->middleware(['auth', 'permission:lihat neraca']);
 
 Route::get('/reports/income-statement', [AccountingReportController::class, 'incomeStatement'])
-    ->name('reports.income_statement');
+    ->name('reports.income_statement')
+    ->middleware(['auth', 'permission:lihat laba rugi']);
 Route::get('/reports/income-statement/pdf', [AccountingReportController::class, 'exportPdf'])
     ->name('reports.income_statement.pdf');
 
@@ -256,7 +256,7 @@ Route::get('/trial/export', [JournalExportController::class, 'exportTrialBalance
     ->name('trial.export');
 
 
-    Route::get('/periods', [AccountingPeriodController::class, 'index'])->name('periods.index');
+    Route::get('/periods', [AccountingPeriodController::class, 'index'])->name('periods.index')->middleware(['auth', 'permission:lihat tutup buku']);
     Route::post('/periods/close', [AccountingPeriodController::class, 'close'])->name('periods.close');
     Route::post('/periods/reopen', [AccountingPeriodController::class, 'reopen'])->name('periods.reopen');
     Route::delete('/periods/{period}', [AccountingPeriodController::class, 'destroy'])
