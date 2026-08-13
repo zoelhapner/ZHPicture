@@ -9,7 +9,7 @@ class AccountingPeriod extends Model
 {
     use HasUuid;
 
-    protected $table = 'accounting_periods';
+    protected $table = 'zhpicture.accounting_periods';
 
     protected $fillable = [
         'license_id',

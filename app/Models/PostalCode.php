@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostalCode extends Model
 {
+    protected $table = 'global.postal_codes';
     public function district() {
         return $this->belongsTo(District::class);
     }

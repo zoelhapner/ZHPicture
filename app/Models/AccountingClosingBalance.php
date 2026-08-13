@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AccountingClosingBalance extends Model
 {
      use HasUuid;
-
-    protected $table = 'accounting_closing_balances';
-
+    protected $table = 'zhpicture.accounting_closing_balances';
     protected $fillable = [
         'license_id',
         'account_id',

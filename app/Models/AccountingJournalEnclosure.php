@@ -9,7 +9,7 @@ class AccountingJournalEnclosure extends Model
 {
     use HasUuids;
 
-    protected $table = 'accounting_journal_enclosures';
+    protected $table = 'zhpicture.accounting_journal_enclosures';
 
     protected $fillable = [
         'journal_id',

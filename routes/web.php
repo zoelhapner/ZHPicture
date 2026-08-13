@@ -10,6 +10,7 @@ use App\Http\Controllers\AccountingReportController;
 use App\Http\Controllers\AccountingPeriodController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\Sso\SsoController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CustomersController;
@@ -75,7 +76,11 @@ require __DIR__.'/auth.php';
 
 //     })->middleware('throttle:6,1')->name('verification.send');
 // });
+Route::get('/sso/login', [SsoController::class, 'login'])
+    ->name('sso.login');
 
+Route::get('/sso/callback', [SsoController::class, 'callback'])
+    ->name('sso.callback');
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route::get('/dashboard', [DashboardController::class, 'index'])

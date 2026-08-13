@@ -54,7 +54,8 @@ COPY docker/php.ini /usr/local/etc/php/conf.d/uploads.ini
 EXPOSE 8080
 
 CMD sh -c "\
+php artisan permission:cache-reset || true && \
 php artisan optimize || true && \
 php artisan storage:link || true && \
-php artisan migrate --force || true && \
+php artisan migrate --path=database/migrations/migrasi2 --force || true && \
 php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"

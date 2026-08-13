@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Religion extends Model
 {
+    protected $table = 'global.religions';
     public function licenseHolders()
 {
     return $this->hasMany(LicenseHolder::class, 'religion_id');

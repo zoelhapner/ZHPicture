@@ -12,7 +12,7 @@ class Menu extends Model
         'parent_id', 'text', 'icon', 'url', 'type', 'order', 'is_active', 'permission_name'
     ];
 
-    // Parent / children
+    protected $table = 'zhpicture.menus';
     public function parent()
     {
         return $this->belongsTo(Menu::class, 'parent_id');

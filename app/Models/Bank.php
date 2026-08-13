@@ -15,7 +15,7 @@ class Bank extends Model
 
     // Tipe primary key UUID
     protected $keyType = 'string';
-
+    protected $table = 'global.banks';
     // Kalau kamu mau isi kolom lewat mass assignment
     protected $fillable = [
         'id',

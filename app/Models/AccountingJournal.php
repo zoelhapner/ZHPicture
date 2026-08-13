@@ -11,6 +11,7 @@ class AccountingJournal extends Model
 
     public $incrementing = false;
     protected $keyType = 'string';
+    protected $table = 'zhpicture.accounting_journal';
     public $timestamps = false;
 
      protected $fillable = [
