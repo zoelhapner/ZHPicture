@@ -668,29 +668,7 @@ Route::post(
     '/projects/{project}/weekly-report',
     [BuildWeeklyController::class, 'store']
 )->name('weekly-report.store');
-Route::post('/build-weekly/update',
-    [BuildWeeklyController::class,'update']
-)->name('build-weekly.update');
 
-Route::post('/build-week-plan/update', 
-    [BuildWeeklyPlanController::class,'update']
-)->name('build-week-plan.update');
-
-Route::post('/build-daily/store',
-    [BuildDailyController::class,'store']
-)->name('build.daily.store');
-Route::get('/daily/{id}/detail', [BuildDailyController::class, 'detail'])
-    ->name('build.daily.detail');
-Route::delete('/daily-work/{id}', [BuildDailyController::class, 'deleteWork']);
-Route::delete('/daily-worker/{id}', [BuildDailyController::class, 'deleteWorker']);
-Route::delete('/daily-material/{id}', [BuildDailyController::class, 'deleteMaterial']);
-Route::get('/reports/{id}/edit', [BuildDailyController::class, 'editPage'])->name('build.daily.edit');
-Route::post('/daily/{id}/update-all', 
-    [BuildDailyController::class, 'updateAll']);
-Route::delete('/daily/documentation/{id}',
-    [BuildDailyController::class, 'deleteDocumentation']);
-Route::delete('/reports/{id}', [BuildDailyController::class, 'destroy']);
-Route::get('/reports/next-date/{project}', [BuildDailyController::class,'nextDate']);
 Route::get('/projects/{project}/invoice-panel',
 [ProjectController::class,'invoicePanel'])
 ->name('projects.invoice.panel');
