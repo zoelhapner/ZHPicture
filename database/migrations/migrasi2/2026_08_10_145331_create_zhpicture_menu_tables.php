@@ -17,7 +17,7 @@ return new class extends Migration
          * Parent dibuat dan diisi terlebih dahulu.
          */
         $tables = [
-            'menus'
+            'menus',
         ];
 
         foreach ($tables as $table) {
@@ -27,7 +27,7 @@ return new class extends Migration
              */
             DB::statement("
                 CREATE TABLE IF NOT EXISTS zhpicture.{$table}
-                (LIKE public.{$table} INCLUDING ALL)
+                (LIKE lebihtersistem.{$table} INCLUDING ALL)
             ");
 
             /*
@@ -36,7 +36,7 @@ return new class extends Migration
             DB::statement("
                 INSERT INTO zhpicture.{$table}
                 SELECT *
-                FROM public.{$table}
+                FROM lebihtersistem.{$table}
             ");
         }
     }
@@ -47,13 +47,7 @@ return new class extends Migration
          * Hapus tabel Finance ZH Picture
          */
         $tables = [
-            'accounting_journal_details',
-            'accounting_journal_enclosures',
-            'accounting_journals',
-            'accounting_closing_balances',
-            'opening_balances',
-            'accounting_periods',
-            'accounting_accounts',
+            'menus',
         ];
 
         foreach ($tables as $table) {
