@@ -37,9 +37,9 @@ class AccountingJournalController extends Controller
                 'accounting_journals.id',
                 'accounting_journals.journal_code',
                 'accounting_journals.transaction_date',
-                'users.fullname as creator_name'
+                'global.users.fullname as creator_name'
             )
-            ->leftJoin('users', 'accounting_journals.created_by', '=', 'users.id')
+            ->leftJoin('global.users', 'accounting_journals.created_by', '=', 'global.users.id')
             ->where('accounting_journals.license_id', $licenseId);
         return DataTables::of($journals)
             ->addIndexColumn()
