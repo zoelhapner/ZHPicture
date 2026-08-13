@@ -307,13 +307,12 @@ public function show(Employee $employee)
         'user.roles',
     ]);
 
-    $attendances = Attendance::where('employee_id', $employee->id)
-        ->latest('attendance_date')
-        ->paginate(10);
+    // $attendances = Attendance::where('employee_id', $employee->id)
+    //     ->latest('attendance_date')
+    //     ->paginate(10);
 
     return view('sdm.employees.show', compact(
-        'employee',
-        'attendances'
+        'employee'
     ));
 }
 
